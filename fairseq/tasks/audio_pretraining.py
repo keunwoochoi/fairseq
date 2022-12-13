@@ -39,6 +39,9 @@ class AudioMaskingConfig:
 
 @dataclass
 class AudioPretrainingConfig(FairseqDataclass):
+    eval_wer: bool = field(
+        default=False, metadata={"help": "compute WER for Seq2Seq models"}
+    )
     data: str = field(default=MISSING, metadata={"help": "path to data directory"})
     labels: Optional[str] = field(
         default=None,
